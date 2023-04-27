@@ -8,33 +8,57 @@ function getComputerChoice(){
 function playRound(playerSelection, computerSelection) {
     playerSelection=playerSelection.toLowerCase();
     if (playerSelection==computerSelection.toLowerCase()) {
-        return "Game Tied!";
+        console.log("Game Tied!");
     } else {
         if (playerSelection=="rock") {
-            if(computerSelection=="Paper")
-                return "You Lose! Paper beats Rock";
-            else
-                return "you won hero";
-            
+            if(computerSelection=="Paper") {
+                console.log("You Lose! Paper beats Rock");
+                ++compCount;
+            }   else {
+                console.log("you won hero");
+                ++userCount;
+            }
         } else if (playerSelection=="paper") {
-            if(computerSelection=="Scissors")
-                return "You Lose! Scissor beats Paper";
-            else
-                return "you won hero";
-            
+            if(computerSelection=="Scissors") {
+                console.log("You Lose! Scissor beats Paper");
+                ++compCount;
+            }   else {
+                console.log("you won hero");
+                ++userCount;
+            }
         } else  if (playerSelection=="scissors"){
-            if(computerSelection=="Rock")
-                return "You Lose! Rock beats Scissors";
-            else
-                    return "you won hero";
-            
+            if(computerSelection=="Rock") {
+                console.log("You Lose! Rock beats Scissors");
+                ++compCount;
+            }   else {
+                console.log("you won hero");
+                ++userCount;
+            }
         }
     }
 }
 
-const playerSelection = prompt("make a choice", "");
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+function game() {
+    
+    for(let i = 0; i<5;i++) {
+        let playerSelection = prompt("make a choice", "");
+        let computerSelection = getComputerChoice();
+        playRound(playerSelection, computerSelection);
+    }
+    if(userCount>compCount) {
+        console.log("Final results user won")
+    } else if(userCount<compCount) {
+        console.log("Final results computer won")
+    } else {
+        console.log("Series tied")
+    }
+}
+let userCount=0;
+let compCount=0;
+game();
+
+
+
   
 
 
