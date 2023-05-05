@@ -2,10 +2,10 @@ function getComputerChoice(){
     const choices="Rock,Paper,Scissors";
     const indiechoice = choices.split(",");
     let randChoice = Math.floor(Math.random()*3);
-    console.log(indiechoice[randChoice]);
     return indiechoice[randChoice];
 }
 function playRound(playerSelection, computerSelection) {
+    console.log(playerSelection, computerSelection);
     playerSelection=playerSelection.toLowerCase();
     if (playerSelection==computerSelection.toLowerCase()) {
         console.log("Game Tied!");
@@ -39,8 +39,26 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
+    const container = document.getElementById("container");
+    const btnRock = document.createElement("button");
+    btnRock.style.marginLeft = '150px';
+    btnRock.textContent = 'Rock';
+    const btnPaper = document.createElement("button");
+    btnPaper.style.marginLeft = '150px';
+    btnPaper.textContent = 'Paper';
+    const btnScissors = document.createElement("button");
+    btnScissors.style.marginLeft = '150px';
+    btnScissors.textContent = 'Scissors';
+    container.appendChild(btnRock);
+    container.appendChild(btnPaper);
+    container.appendChild(btnScissors);
+
+    btnRock.addEventListener('click', function(){playRound(btnRock.textContent, getComputerChoice());});
+    btnPaper.addEventListener('click', function(){playRound(btnPaper.textContent, getComputerChoice());});
+    btnScissors.addEventListener('click', function(){playRound(btnScissors.textContent, getComputerChoice());});
+
     
-    for(let i = 0; i<5;i++) {
+    /*for(let i = 0; i<5;i++) {
         let playerSelection = prompt("make a choice", "");
         let computerSelection = getComputerChoice();
         playRound(playerSelection, computerSelection);
@@ -51,7 +69,7 @@ function game() {
         console.log("Final results computer won")
     } else {
         console.log("Series tied")
-    }
+    }*/
 }
 let userCount=0;
 let compCount=0;
