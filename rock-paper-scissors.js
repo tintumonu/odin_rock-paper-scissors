@@ -68,43 +68,40 @@
 
     function playRound(playerSelection, computerSelection) {
         if((userCount<5)&&(compCount<5)) {
-        console.log(playerSelection, computerSelection);
-        playerSelection=playerSelection.toLowerCase();
-        if (playerSelection==computerSelection.toLowerCase()) {
-            informRoundWinner.textContent= "Game Tied!";
-        } else {
-            if (playerSelection=="rock") {
-                if(computerSelection=="Paper") {
-                    informRoundWinner.textContent = "You Lose! Paper beats Rock";
-                    return ++compCount;
-                }   else {
-                    informRoundWinner.textContent = "you won hero! Paper beats Rock";
-                    return ++userCount;
-                }
-            } else if (playerSelection=="paper") {
-                if(computerSelection=="Scissors") {
-                    informRoundWinner.textContent = "You Lose! Scissors beats Paper";
-                    return ++compCount;
-                }   else {
-                    informRoundWinner.textContent = "you won hero! Scissors beats Paper";
-                    return ++userCount;
-                }
-            } else  if (playerSelection=="scissors"){
-                if(computerSelection=="Rock") {
-                    informRoundWinner.textContent = "You Lose! Rock beats Scissors";
-                    return ++compCount;
-                }   else {
-                    informRoundWinner.textContent = "you won hero! Rock beats Scissors";
-                    return ++userCount;
+            playerSelection=playerSelection.toLowerCase();
+             console.log(playerSelection, computerSelection);
+            if (playerSelection==computerSelection.toLowerCase()) {
+                informRoundWinner.textContent= "Game Tied!";
+            } else {
+                if (playerSelection=="rock") {
+                    if(computerSelection=="Paper") {
+                        informRoundWinner.textContent = "You Lose! Paper beats Rock";
+                        return ++compCount;
+                    }   else if (computerSelection=="Scissors") {
+                        informRoundWinner.textContent = "you won hero! Rock beats Scissors";
+                        return ++userCount;
+                    }
+                } else if (playerSelection=="paper") {
+                    if(computerSelection=="Scissors") {
+                        
+                        informRoundWinner.textContent = "You Lose! Scissors beat Paper";
+                        return ++compCount;
+                    }   else if (computerSelection=="Rock"){
+                        informRoundWinner.textContent = "you won hero! Paper beats Rock";
+                        return ++userCount;
+                    }
+                } else  if (playerSelection=="scissors"){
+                    if(computerSelection=="Rock") {
+                        informRoundWinner.textContent = "You Lose! Rock beats Scissors";
+                        return ++compCount;
+                    }   else if (computerSelection=="Paper"){
+                        informRoundWinner.textContent = "you won hero! Scissors beat Rock";
+                        return ++userCount;
+                    }
                 }
             }
         }
     }
-
-    
-        
-    
-}
     
 
 
